@@ -1,3 +1,8 @@
+default['consul']['version'] = '0.5.0'
+default['consul']['checksums'] = {
+  '0.5.0_linux_amd64'  => '161f2a8803e31550bd92a00e95a3a517aa949714c19d3124c46e56cfdc97b088',
+  '0.5.0_web_ui'  => '0081d08be9c0b1172939e92af5a7cf9ba4f90e54fae24a353299503b24bb8be9'
+}
 default['consul']['bootstrap_expect'] = '5'
 default['consul']['servers'] = [
   'consul-001.optoro.io',

@@ -17,4 +17,8 @@ suites:
 - name: default
   encrypted_data_bag_secret_key_path: "test/integration/encrypted_data_bag_secret"
   run_list:
+    - recipe[apt]
     - recipe[optoro_consul::default]
+  attributes:
+    apt:
+      compile_time_update: true
