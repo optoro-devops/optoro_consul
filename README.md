@@ -6,12 +6,13 @@ Installs Consul
 
 ## Platform:
 
-*No platforms defined*
+* ubuntu (= 14.04)
 
 ## Cookbooks:
 
 * consul (~> 0.7.1)
 * optoro_nrpechecks
+* python
 
 # Attributes
 
@@ -27,7 +28,8 @@ Installs Consul
 
 # Recipes
 
-* optoro_consul::default
+* optoro_consul::default - Installs consul server
+* optoro_consul::client - Installs consul client
 
 # License and Maintainer
 
