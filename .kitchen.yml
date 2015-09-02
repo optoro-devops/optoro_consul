@@ -23,6 +23,9 @@ suites:
   attributes:
     apt:
       compile_time_update: true
+    consul:
+      servers:
+        - 127.0.0.1
 - name: client
   encrypted_data_bag_secret_key_path: "test/integration/encrypted_data_bag_secret"
   run_list:
