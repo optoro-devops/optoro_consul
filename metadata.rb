@@ -4,7 +4,7 @@ maintainer_email 'devops@optoro.com'
 license 'MIT'
 description 'Installs Consul'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version '0.0.9'
+version '0.0.10'
 
 supports 'ubuntu', '= 14.04'
 
@@ -17,3 +17,4 @@ recipe 'optoro_consul::client', 'Installs consul client'
 depends 'consul', '~> 0.7.1'
 depends 'optoro_nrpechecks'
 depends 'python'
+depends 'logrotate'
