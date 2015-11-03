@@ -35,3 +35,20 @@ suites:
   attributes:
     apt:
       compile_time_update: true
+
+- name: service
+  encrypted_data_bag_secret_key_path: "test/integration/encrypted_data_bag_secret"
+  run_list:
+    - recipe[apt]
+    - recipe[optoro_nrpechecks]
+    - recipe[optoro_consul::client]
+    - recipe[optoro_consul::_service]
+  attributes:
+    apt:
+      compile_time_update: true
+    optoro_consul:
+      service:
+        name: 'test_service'
+        port: 8080
+        checks:
+          - { script: 'echo true', interval: '5s' }
