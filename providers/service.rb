@@ -5,6 +5,7 @@ end
 use_inline_resources
 
 action :create do
+  DeepMerge = Chef::Mixin::DeepMerge
 
   service 'consul' do
     provider Chef::Provider::Service::Upstart
@@ -15,16 +16,16 @@ action :create do
 
   params = {
     name: name,
-    checks: new_resource.checks,
     port: new_resource.port,
     address: node['fqdn']
   }
+
+  params = DeepMerge.merge(params, new_resource.params)
 
   file "#{node['consul']['config_dir']}/#{name}.json" do
     content(JSON.pretty_generate('service' => params))
     owner node['consul']['service_user']
     group node['consul']['service_group']
-    notifies :reload, 'service[consul]', :immediately
+    notifies :reload, 'service[consul]', :delayed
   end
-
 end

@@ -1,7 +1,7 @@
 ---
 driver_plugin: vagrant
 driver_config:
-  require_chef_omnibus: 11.16.4
+  require_chef_omnibus: 12.6.0
   customize:
     natdnshostresolver1: "on"
     memory: 2048
@@ -47,5 +47,7 @@ suites:
       service:
         name: 'test_service'
         port: 8080
+        tags:
+          - testing
         checks:
           - { script: 'echo true', interval: '5s' }
