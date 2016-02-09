@@ -10,8 +10,8 @@ describe 'optoro_consul::default' do
           end.converge(described_recipe)
         end
 
-        it 'Include consul::default' do
-          expect(chef_run).to include_recipe('consul::default')
+        it 'includes optoro_consul::default' do
+          expect(chef_run).to include_recipe('optoro_consul::default')
         end
       end
     end
