@@ -14,22 +14,24 @@ platforms:
     box_url: http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_ubuntu-14.04_chef-provisionerless.box
 
 suites:
+- name: server
+  encrypted_data_bag_secret_key_path: "test/integration/encrypted_data_bag_secret"
+  run_list:
+    - recipe[apt]
+    - recipe[optoro_consul::server]
+  attributes:
+    apt:
+      compile_time_update: true
+    optoro_consul:
+      bootstrap_expect: 1
+      servers:
+        - 127.0.0.1
+
 - name: default
   encrypted_data_bag_secret_key_path: "test/integration/encrypted_data_bag_secret"
   run_list:
     - recipe[apt]
-    - recipe[optoro_consul::default]
-  attributes:
-    apt:
-      compile_time_update: true
-    consul:
-      servers:
-        - 127.0.0.1
-- name: client
-  encrypted_data_bag_secret_key_path: "test/integration/encrypted_data_bag_secret"
-  run_list:
-    - recipe[apt]
-    - recipe[optoro_consul::client]
+    - recipe[optoro_consul]
   attributes:
     apt:
       compile_time_update: true
