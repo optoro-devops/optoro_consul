@@ -40,8 +40,7 @@ suites:
   encrypted_data_bag_secret_key_path: "test/integration/encrypted_data_bag_secret"
   run_list:
     - recipe[apt]
-    - recipe[optoro_consul::client]
-    - recipe[optoro_consul::_service]
+    - recipe[optoro_consul::service]
   attributes:
     apt:
       compile_time_update: true
