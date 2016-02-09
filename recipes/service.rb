@@ -1,4 +1,4 @@
-include_recipe 'optoro_consul::default'
+include_recipe 'consul'
 
 consul_definition node['optoro_consul']['service']['name'] do
   type 'service'
