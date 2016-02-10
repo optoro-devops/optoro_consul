@@ -1,7 +1,7 @@
-default['consul']['version'] = '0.5.2'
+default['consul']['version'] = '0.6.3'
 default['consul']['checksums'] = {
-  '0.5.2_linux_amd64'  => '171cf4074bfca3b1e46112105738985783f19c47f4408377241b868affa9d445',
-  '0.5.2_web_ui'  => 'ad883aa52e1c0136ab1492bbcedad1210235f26d59719fb6de3ef6464f1ff3b1'
+  '0.6.3_linux_amd64' => 'b0532c61fec4a4f6d130c893fd8954ec007a6ad93effbe283a39224ed237e250',
+  '0.6.3_web_ui' => '93bbb300cacfe8de90fb3bd5ede7d37ae6ce014898edc520b9c96a676b2bbb72'
 }
 default['consul']['bootstrap_expect'] = '5'
 default['consul']['servers'] = [

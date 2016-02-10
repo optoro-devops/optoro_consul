@@ -1,3 +1,4 @@
+node.default['consul']['base_url'] = "https://releases.hashicorp.com/consul/#{node['consul']['version']}/consul_%{version}.zip"
 node.override['consul']['service_mode'] = 'client'
 node.default['consul']['serve_ui'] = false
 node.default['consul']['service']['server'] = false
