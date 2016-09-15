@@ -13,4 +13,10 @@ describe 'optoro_consul::client' do
   describe port(8500) do
     it { should be_listening }
   end
+
+  describe file('/etc/consul/consul.json') do
+    it { should be_file }
+    it { should exist }
+    its(:content) { should match(/start_join/) }
+  end
 end

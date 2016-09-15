@@ -1,11 +1,21 @@
 ---
-driver_plugin: vagrant
+driver_plugin: joyent
 driver_config:
-  require_chef_omnibus: 12.6.0
-  customize:
-    natdnshostresolver1: "on"
-    memory: 2048
-provisioner: chef_zero
+  vm_hostname: kafka
+  joyent_username: <%= ENV['SDC_ACCOUNT'] %>
+  joyent_keyfile: <%= ENV['SDC_KEY_FILE'] %>
+  joyent_keyname: <%= ENV['SDC_KEY_ID'] %>
+  joyent_url: <%= ENV['SDC_URL'] %>
+  require_chef_omnibus: '12.6.0'
+  joyent_networks:
+   - c0bf4505-75ca-41ea-a706-a8ca34a84f54
+  joyent_image_id: a3c7b9ba-279d-11e6-aecd-07e1aa0cc545
+  joyent_flavor_id: g4-general-4G
+  joyent_version: '~7.0'
+provisioner:
+  name: chef_zero
+  client_rb:
+        environment: kitchen
 
 platforms:
 - name: ubuntu-14.04
@@ -14,17 +24,6 @@ platforms:
     box_url: http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_ubuntu-14.04_chef-provisionerless.box
 
 suites:
-- name: default
-  encrypted_data_bag_secret_key_path: "test/integration/encrypted_data_bag_secret"
-  run_list:
-    - recipe[apt]
-    - recipe[optoro_consul::default]
-  attributes:
-    apt:
-      compile_time_update: true
-    consul:
-      servers:
-        - 127.0.0.1
 - name: client
   encrypted_data_bag_secret_key_path: "test/integration/encrypted_data_bag_secret"
   run_list:

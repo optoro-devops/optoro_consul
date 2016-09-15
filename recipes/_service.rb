@@ -1,4 +1,5 @@
-optoro_consul_service 'test_service' do
-  port 8080
-  params node['optoro_consul']['service']
+consul_definition 'test_service' do
+  type 'service'
+  parameters(port: 8080)
+  notifies :reload, 'consul_service[consul]', :delayed
 end
