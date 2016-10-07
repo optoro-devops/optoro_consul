@@ -1,5 +1,6 @@
 default['consul']['client_address'] = '0.0.0.0'
 default['consul']['config']['enable_syslog'] = true
+default['consul']['version'] = '0.6.4'
 
 # This needs to be discoverable
 # Currently set in Environment on chef-server

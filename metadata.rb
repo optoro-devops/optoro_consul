@@ -4,7 +4,7 @@ maintainer_email 'devops@optoro.com'
 license 'MIT'
 description 'Installs Consul'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version '0.1.0'
+version '0.1.1'
 issues_url 'https://optoro.atlassian.net/secure/Dashboard.jspa'
 source_url 'https://github.com/optoro-devops/optoro_consul'
 
@@ -16,6 +16,6 @@ provides 'optoro_consul::client'
 recipe 'optoro_consul::default', 'Installs consul server'
 recipe 'optoro_consul::client', 'Installs consul client'
 
-depends 'consul', '= 2.1.1'
+depends 'consul', '~> 2.2.0'
 depends 'python'
 depends 'logrotate'
