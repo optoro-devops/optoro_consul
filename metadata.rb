@@ -4,7 +4,7 @@ maintainer_email 'devops@optoro.com'
 license 'MIT'
 description 'Installs Consul'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version '0.1.1'
+version '0.1.2'
 issues_url 'https://optoro.atlassian.net/secure/Dashboard.jspa'
 source_url 'https://github.com/optoro-devops/optoro_consul'
 
