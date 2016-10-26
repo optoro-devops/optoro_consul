@@ -3,6 +3,9 @@ default['consul']['version'] = '0.6.4'
 
 default['consul']['config']['enable_syslog'] = false
 
+# Setting the ONE TRUE NAME of consul
+override!['consul']['service_name'] = 'consul'
+
 # This needs to be discoverable
 # Currently set in Environment on chef-server
 # if node['chef_environment'] == 'sdc-optiturn' # ~FC039
