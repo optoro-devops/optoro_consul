@@ -6,7 +6,7 @@ description 'Installs Consul'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 issues_url 'https://optoro.atlassian.net/secure/Dashboard.jspa'
 source_url 'https://github.com/optoro-devops/optoro_consul'
-version '0.1.3'
+version '0.1.4'
 
 supports 'ubuntu', '= 14.04'
 
