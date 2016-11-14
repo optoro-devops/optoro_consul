@@ -17,7 +17,7 @@ action :create do
   params = {
     name: name,
     port: new_resource.port,
-    address: node['fqdn']
+    address: node['ipaddress']
   }
 
   params = DeepMerge.merge(params, new_resource.params)
