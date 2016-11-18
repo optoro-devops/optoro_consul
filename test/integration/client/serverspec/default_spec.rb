@@ -19,4 +19,14 @@ describe 'optoro_consul::client' do
     it { should exist }
     its(:content) { should match(/start_join/) }
   end
+
+  describe file('/etc/init/consul.conf') do
+    it { should_not be_file }
+    it { should_not exist }
+  end
+
+  describe file('/etc/init.d/consul') do
+    it { should be_file }
+    it { should exist }
+  end
 end
