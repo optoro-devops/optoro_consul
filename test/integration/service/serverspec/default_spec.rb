@@ -13,5 +13,6 @@ describe 'optoro_consul::default' do
   describe file('/etc/consul/conf.d/test_service.json') do
     it { should be_file }
     its(:content) { should match(/test_service/) }
+    its(:content) { should match(/echo OK/) }
   end
 end
