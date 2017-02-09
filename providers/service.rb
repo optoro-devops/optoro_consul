@@ -14,10 +14,25 @@ action :create do
 
   name = new_resource.service_name || node['optoro_consul']['service']['name']
 
+  check = {
+    interval: '10s',
+    timeout: '5s'
+  }
+
+  check = DeepMerge.merge(check, new_resource.check)
+
+  tags = [
+    node['fqdn']
+  ]
+
+  tags += new_resource.tags
+
   params = {
     name: name,
     port: new_resource.port,
-    address: node['ipaddress']
+    tags: tags.uniq,
+    enableTagOverride: false,
+    check: check
   }
 
   params = DeepMerge.merge(params, new_resource.params)
