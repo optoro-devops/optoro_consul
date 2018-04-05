@@ -1,4 +1,3 @@
-source 'http://berks-api.optoro.io'
+source 'https://supermarket.chef.io'
+source 'https://supermarket.optoro.io'
 metadata
-
-cookbook 'apt'
