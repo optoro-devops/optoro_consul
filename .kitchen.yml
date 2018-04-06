@@ -14,7 +14,7 @@ driver_config:
 provisioner:
   name: chef_zero
   product_name: chef
-  product_version: 12.7.2
+  product_version: 12.6.0
   client_rb:
     environment: kitchen
 
