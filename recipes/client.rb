@@ -6,7 +6,7 @@ end
 # Disable Upstart consul service
 service 'consul' do
   provider Chef::Provider::Service::Upstart unless node['platform_version'] == '16.04'
-  action [:stop, :disable]
+  # action [:stop, :disable]
 end
 
 file '/etc/init/consul.conf' do
